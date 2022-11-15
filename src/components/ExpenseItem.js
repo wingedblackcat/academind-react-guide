@@ -1,16 +1,27 @@
-import './ExpenseItem.css'; 
+import './ExpenseItem.css';
 
-const ExpenseItem = () => {
-  const expenseDate = new Date(2022, 10, 12).toLocaleDateString();
-  const expenseTitle = 'Car Insurance';
-  const expenseAmount = 294.67;
+/**
+ * @param {object} props
+ * @param {string} props.title
+ * @param {string} props.amount
+ * @param {Date} props.date
+ */
+const ExpenseItem = ({ title, amount, date }) => {
+  const month = date.toLocaleString('en-us', { month: 'long' });
+  const day = date.toLocaleString('en-us', { day: '2-digit' });
+  const year = date.getFullYear();
+
 
   return (
     <div className='expense-item'>
-      <div>{expenseDate}</div>
+      <div>
+        <div>{month}</div>
+        <div>{year}</div>
+        <div>{day}</div>
+      </div>
       <div className='expense-item__description'>
-        <h2>{expenseTitle}</h2>
-        <div className='expense-item__price'>${expenseAmount}</div>
+        <h2>{title}</h2>
+        <div className='expense-item__price'>${amount}</div>
       </div>
     </div>
   );
