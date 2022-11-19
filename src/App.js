@@ -27,9 +27,9 @@ const App = () => {
     <div>
       <h2>Let's get started</h2>
       {
-        expenses.map(({ title, amount, date, id }) =>
+        expenses.map(({ title, amount, date, id }) => (
           <ExpenseItem title={title} amount={amount} date={date} key={id} />
-        )
+        ))
       }
     </div>
   );

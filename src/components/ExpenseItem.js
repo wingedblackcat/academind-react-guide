@@ -1,7 +1,7 @@
 import './ExpenseItem.css';
 
 /**
- * @param {object} props
+ * @param {object} props 
  * @param {string} props.title
  * @param {string} props.amount
  * @param {Date} props.date
