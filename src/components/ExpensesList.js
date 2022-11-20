@@ -1,4 +1,6 @@
+import Card from "./Card";
 import ExpenseItem from "./ExpenseItem";
+
 import './ExpensesList.css';
 
 const expenses = [
@@ -25,11 +27,11 @@ const expenses = [
 
 const ExpensesList = () => {
   return (
-    <div className="expensese">
+    <Card className="expenses">
       {expenses.map(({ title, amount, date, id }) => (
         <ExpenseItem title={title} amount={amount} date={date} key={id} />
       ))}
-    </div>
+    </Card>
   );
 };
 
