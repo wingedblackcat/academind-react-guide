@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 import Card from "../UI/Card";
 import ExpenseDate from "./ExpenseDate";
@@ -12,8 +12,7 @@ const ExpenseItem = ({ title, amount, date }) => {
   const [expenseTitle, setExpenseTitle] = useState(title);
 
   const titleChangeClickHandler = (e) => {
-    setExpenseTitle(() =>'well shit');
-    console.log(expenseTitle);
+    setExpenseTitle(() => "Hot Damn");
   };
 
   return (
