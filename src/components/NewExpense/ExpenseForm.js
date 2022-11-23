@@ -5,7 +5,7 @@ import "./ExpenseForm.css";
 const ExpenseForm = () => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("0");
-  const [enteredDate, setEnteredDate] = useState(new Date().toDateString());
+  const [enteredDate, setEnteredDate] = useState(new Date());
 
   /**
    * @param {React.ChangeEvent} event
@@ -31,8 +31,21 @@ const ExpenseForm = () => {
     setEnteredDate(inputValue);
   };
 
+  /**
+   * @param {React.FormEvent} event
+   */
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+    console.log(expenseData);
+  };
+
   return (
-    <form>
+    <form onSubmit={submitFormHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
