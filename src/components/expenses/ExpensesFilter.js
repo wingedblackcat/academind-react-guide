@@ -13,7 +13,7 @@ const ExpensesFilter = ({ onYearSelect, expensesYear }) => {
    */
   const selectChangeHandler = (event) => {
     const selectedYear = event.target.value;
-    onYearSelect(Number(selectedYear));
+    onYearSelect(selectedYear);
   };
 
   return (

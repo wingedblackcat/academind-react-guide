@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { formatDate } from "../../utils/date-format";
 import "./ExpenseForm.css";
 
 /**
@@ -9,7 +10,7 @@ import "./ExpenseForm.css";
 const ExpenseForm = ({ onSaveExpenseData }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState("");
+  const [enteredDate, setEnteredDate] = useState(formatDate(new Date()));
 
   // ---------- Handlers ----------
 
@@ -45,7 +46,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      date: new Date(enteredDate),
+      date: formatDate(new Date(enteredDate)),
     };
 
     onSaveExpenseData(expenseData);
@@ -57,7 +58,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
   const resetStates = () => {
     setEnteredTitle("");
     setEnteredAmount("");
-    setEnteredDate("");
+    setEnteredDate(formatDate(new Date()));
   };
 
   return (

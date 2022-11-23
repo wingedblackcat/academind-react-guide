@@ -6,14 +6,12 @@ import "./NewExpense.css";
  * @param {Function} props.onAddExpense
  */
 const NewExpense = ({ onAddExpense }) => {
-
   /**
-   * @param {object} enteredExpenseData 
+   * @param {{title: string, amount: string, date: string }} enteredExpenseData
    */
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
-      amount: Number(enteredExpenseData.amount),
       id: Math.random().toString(),
     };
 

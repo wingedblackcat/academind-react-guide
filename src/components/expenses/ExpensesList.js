@@ -7,13 +7,15 @@ import "./ExpensesList.css";
 
 /**
  * @param {object} props
- * @param {object[]} props.expenses
+ * @param {{title: string, amount: string, date: string, id: string }[]} props.expenses
  */
 const ExpensesList = ({ expenses }) => {
-  const [expensesYear, setExpensesYear] = useState(new Date().getFullYear() - 1);
+  const [expensesYear, setExpensesYear] = useState(
+    new Date().getFullYear().toString()
+  );
 
   /**
-   * @param {number} selectedYear 
+   * @param {string} selectedYear
    */
   const yearChangeHandler = (selectedYear) => {
     setExpensesYear(selectedYear);
@@ -21,7 +23,10 @@ const ExpensesList = ({ expenses }) => {
 
   return (
     <Card className="expenses">
-      <ExpensesFilter onYearSelect={yearChangeHandler} expensesYear={expensesYear} />
+      <ExpensesFilter
+        onYearSelect={yearChangeHandler}
+        expensesYear={expensesYear}
+      />
       {expenses.map(({ title, amount, date, id }) => (
         <ExpenseItem title={title} amount={amount} date={date} key={id} />
       ))}
