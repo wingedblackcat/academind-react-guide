@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import Card from "../UI/Card";
 import ExpenseDate from "./ExpenseDate";
-
 import "./ExpenseItem.css";
 
 /**
@@ -11,7 +10,7 @@ import "./ExpenseItem.css";
 const ExpenseItem = ({ title, amount, date }) => {
   const [expenseTitle, setExpenseTitle] = useState(title);
 
-  const titleChangeClickHandler = (e) => {
+  const titleChangeClickHandler = () => {
     setExpenseTitle(() => "Hot Damn");
   };
 
