@@ -2,6 +2,11 @@ import React from "react";
 
 import "./ExpensesFilter.css";
 
+/**
+ * @param {object} props
+ * @param {Function} props.onYearSelect
+ * @param {number} props.expensesYear
+ */
 const ExpensesFilter = ({ onYearSelect, expensesYear }) => {
   /**
    * @param {React.ChangeEvent} event
