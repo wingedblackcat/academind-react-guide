@@ -31,9 +31,13 @@ const ExpensesList = ({ expenses }) => {
         onYearSelect={yearChangeHandler}
         filteredYear={filteredYear}
       />
-      {filteredExpensesByYear.map(({ title, amount, date, id }) => (
-        <ExpenseItem title={title} amount={amount} date={date} key={id} />
-      ))}
+      {filteredExpensesByYear.length === 0 ? (
+        <p>No Expenses Found</p>
+      ) : (
+        filteredExpensesByYear.map(({ title, amount, date, id }) => (
+          <ExpenseItem title={title} amount={amount} date={date} key={id} />
+        ))
+      )}
     </Card>
   );
 };
