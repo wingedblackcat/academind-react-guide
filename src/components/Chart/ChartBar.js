@@ -3,15 +3,13 @@ import "./ChartBar.css";
 /**
  * @param {object} props
  * @param {number} props.value
- * @param {number|null} props.maxValue
+ * @param {number} props.maxValue
  * @param {string} props.label
  * @returns
  */
 const ChartBar = ({ value, maxValue, label }) => {
   const barFillHeight =
-    maxValue && maxValue > 0
-      ? "0%"
-      : `${Math.round((value / maxValue) * 100)}%`;
+    maxValue === 0 ? "0%" : `${Math.round((value / maxValue) * 100)}%`;
 
   return (
     <div className="chart-bar">
