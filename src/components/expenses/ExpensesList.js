@@ -1,53 +1,23 @@
-import { useState } from "react";
-
-import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
-import ExpensesFilter from "./ExpensesFilter";
 import "./ExpensesList.css";
 
 /**
  * @param {object} props
- * @param {Expense[]} props.expenses
+ * @param {import("./Expenses").Expense[]} props.expenses
+ * @returns
  */
-const ExpensesList = ({ expenses }) => {
-  const [filteredYear, setFilteredYear] = useState(
-    new Date().getFullYear().toString()
-  );
+const ExensesList = ({ expenses = [] }) => {
+  const isExpensesEmpty = expenses.length === 0;
 
-  const filteredExpensesByYear = expenses.filter(({ date }) => {
-    return new Date(date).getFullYear() === Number(filteredYear);
-  });
-
-  /**
-   * @param {string} selectedYear
-   */
-  const yearChangeHandler = (selectedYear) => {
-    setFilteredYear(selectedYear);
-  };
-
-  return (
-    <Card className="expenses">
-      <ExpensesFilter
-        onYearSelect={yearChangeHandler}
-        filteredYear={filteredYear}
-      />
-      {filteredExpensesByYear.length === 0 ? (
-        <p>No Expenses Found</p>
-      ) : (
-        filteredExpensesByYear.map(({ title, amount, date, id }) => (
-          <ExpenseItem title={title} amount={amount} date={date} key={id} />
-        ))
-      )}
-    </Card>
+  return isExpensesEmpty ? (
+    <h2 className="expenses-list__fallback">Found no expenses</h2>
+  ) : (
+    <ul className="expenses-list">
+      {expenses.map(({ title, amount, date, id }) => (
+        <ExpenseItem title={title} amount={amount} date={date} key={id} />
+      ))}
+    </ul>
   );
 };
 
-export default ExpensesList;
-
-/**
- * @typedef {object} Expense
- * @property {string} id
- * @property {string} title
- * @property {string} amount
- * @property {string} date
- */
+export default ExensesList;

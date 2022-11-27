@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import ExpensesList from "./components/expenses/ExpensesList";
+import Expenses from "./components/expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 import { formatDate } from "./utils/date-format";
 
@@ -46,7 +46,7 @@ const App = () => {
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <ExpensesList expenses={expenses} />
+      <Expenses expenses={expenses} />
     </div>
   );
 };
